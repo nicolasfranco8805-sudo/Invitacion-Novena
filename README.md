@@ -207,12 +207,12 @@
                 <p>Haz clic para abrir la invitación</p>
             </div>
             <div class="card-face card-back">
-                <h2>¡Estás Invitado!</h2>
+                <h2>¡La Familia Franco Manchego Te invita a celebrar el tercer dia de la Novena de Aguinaldos!</h2>
                 <p>Acompáñanos a vivir la alegría de la novena, compartir en familia y disfrutar de este momento especial lleno de paz y unión.</p>
-                <p style="margin-top: 20px; font-weight: bold; color: #b30000;">✨ ¡Te esperamos! ✨</p>
+                <p style="margin-top: 20px; font-weight: bold; color: #b30000;">✨ ¡Confirma asistencia! ✨</p>
             </div>
         </div>
-        <div class="instruction">Toca la tarjeta para voltearla</div>
+        <div class="instruction">Toca la tarjeta para Abrir</div>
     </div>
 
     <script>
