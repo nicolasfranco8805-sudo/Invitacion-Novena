@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Invitacion Novena de Aguinaldos!</title>
+    <title>Invitacion-Novena</title>
     <style>
         * {
             box-sizing: border-box;
@@ -19,11 +20,45 @@
             align-items: center;
             overflow: hidden;
             color: #fff;
+            position: relative;
         }
 
+        /* --- EFECTO DE NIEVE ANIMADA --- */
+        .snowflakes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background: #fff;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) translateX(20px);
+                opacity: 0.3;
+            }
+        }
+
+        /* --- CONTENEDOR Y TARJETA --- */
         .container {
             text-align: center;
             perspective: 1000px;
+            z-index: 2;
         }
 
         .card {
@@ -84,6 +119,8 @@
         .card-back h2 {
             color: #b30000;
             margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
             font-size: 1.5rem;
         }
 
@@ -96,6 +133,12 @@
         .tree-icon {
             font-size: 4rem;
             margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .instruction {
@@ -104,9 +147,58 @@
             color: #aaa;
             letter-spacing: 1px;
         }
+
+        /* --- BOTÓN DE MÚSICA --- */
+        .music-control {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #fff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+            transition: background 0.3s;
+        }
+
+        .music-control:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
     </style>
 </head>
 <body>
+
+    <!-- Animación de Nieve -->
+    <div class="snowflakes" aria-hidden="true">
+        <!-- Generamos varios copos de nieve con diferentes tamaños y velocidades -->
+        <div class="snowflake" style="left: 10%; width: 8px; height: 8px; animation-duration: 5s; animation-delay: 0s;"></div>
+        <div class="snowflake" style="left: 20%; width: 5px; height: 5px; animation-duration: 7s; animation-delay: 2s;"></div>
+        <div class="snowflake" style="left: 30%; width: 10px; height: 10px; animation-duration: 4s; animation-delay: 1s;"></div>
+        <div class="snowflake" style="left: 40%; width: 6px; height: 6px; animation-duration: 6s; animation-delay: 3s;"></div>
+        <div class="snowflake" style="left: 50%; width: 9px; height: 9px; animation-duration: 5.5s; animation-delay: 0.5s;"></div>
+        <div class="snowflake" style="left: 60%; width: 4px; height: 4px; animation-duration: 8s; animation-delay: 4s;"></div>
+        <div class="snowflake" style="left: 70%; width: 7px; height: 7px; animation-duration: 4.5s; animation-delay: 1.5s;"></div>
+        <div class="snowflake" style="left: 80%; width: 10px; height: 10px; animation-duration: 6.5s; animation-delay: 2.5s;"></div>
+        <div class="snowflake" style="left: 90%; width: 6px; height: 6px; animation-duration: 5s; animation-delay: 3.5s;"></div>
+    </div>
+
+    <!-- Música de fondo (Audio libre de derechos de Navidad) -->
+    <audio id="christmasAudio" loop>
+        <source src="https://actions.google.com/sounds/v1/holidays/christmas_bells.ogg" type="audio/ogg">
+        Tu navegador no soporta elementos de audio.
+    </audio>
+
+    <!-- Botón para Activar/Desactivar Música -->
+    <button class="music-control" onclick="toggleMusic()">
+        🎵 <span id="musicText">Reproducir Música</span>
+    </button>
 
     <div class="container">
         <div class="card" id="christmasCard" onclick="toggleCard()">
@@ -116,9 +208,9 @@
                 <p>Haz clic para abrir la invitación</p>
             </div>
             <div class="card-face card-back">
-                <h2>¡Familia Franco Manchego!</h2>
-                <p>Que esta época navideña esté llena de alegría, paz y grandes momentos junto a tus seres queridos. !</p>Tenemos el placer de invitarlos a celebrar el tercer día de la Novena de Aguinaldos
-                <p style="margin-top: 20px; font-weight: bold; color: #b30000;">✨ ¡Te Esperamos! ✨</p>
+                <h2>¡Estás Invitado!</h2>
+                <p>Acompáñanos a vivir la alegría de la novena, compartir en familia y disfrutar de este momento especial lleno de paz y unión.</p>
+                <p style="margin-top: 20px; font-weight: bold; color: #b30000;">✨ ¡Te esperamos! ✨</p>
             </div>
         </div>
         <div class="instruction">Toca la tarjeta para voltearla</div>
@@ -129,7 +221,21 @@
             const card = document.getElementById('christmasCard');
             card.classList.toggle('open');
         }
+
+        function toggleMusic() {
+            const audio = document.getElementById('christmasAudio');
+            const musicText = document.getElementById('musicText');
+
+            if (audio.paused) {
+                audio.play();
+                musicText.textContent = "Silenciar Música";
+            } else {
+                audio.pause();
+                musicText.textContent = "Reproducir Música";
+            }
+        }
     </script>
 
 </body>
+</html>
 </html>
