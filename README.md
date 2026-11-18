@@ -190,9 +190,9 @@
 
     <!-- Música de fondo (Audio libre de derechos de Navidad) -->
     <audio id="christmasAudio" loop>
-        <source src="https://actions.google.com/sounds/v1/holidays/christmas_bells.ogg" type="audio/ogg">
-        Tu navegador no soporta elementos de audio.
-    </audio>
+    <source src="https://cdn.pixabay.com/download/audio/2022/11/15/audio_1250325089.mp3?filename=christmas-bells-1234.mp3" type="audio/mpeg">
+    Tu navegador no soporta elementos de audio.
+</audio>
 
     <!-- Botón para Activar/Desactivar Música -->
     <button class="music-control" onclick="toggleMusic()">
