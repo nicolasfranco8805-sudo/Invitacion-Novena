@@ -113,13 +113,13 @@
         <div class="card" id="christmasCard" onclick="toggleCard()">
             <div class="card-face card-front">
                 <div class="tree-icon">🎄</div>
-                <h1>¡Feliz Navidad!</h1>
-                <p>Haz clic para abrir tu tarjeta</p>
+                <h1>¡Invitación Novena!</h1>
+                <p>Haz clic para abrir la invitación</p>
             </div>
             <div class="card-face card-back">
-                <h2>¡Pásala Genial!</h2>
-                <p>Que esta época navideña esté llena de alegría, paz y grandes momentos junto a tus seres queridos. ¡Muchos éxitos y prosperidad!</p>
-                <p style="margin-top: 20px; font-weight: bold; color: #b30000;">✨ ¡Felices Fiestas! ✨</p>
+                <h2>¡Familia Franco Manchego!</h2>
+                <p>Que esta época navideña esté llena de alegría, paz y grandes momentos junto a tus seres queridos. !</p>Tenemos el placer de invitarlos a celebrar el tercer día de la Novena de Aguinaldos
+                <p style="margin-top: 20px; font-weight: bold; color: #b30000;">✨ ¡Te Esperamos! ✨</p>
             </div>
         </div>
         <div class="instruction">Toca la tarjeta para voltearla</div>
