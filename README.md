@@ -190,7 +190,7 @@
 
     <!-- Música de fondo (Audio libre de derechos de Navidad) -->
     <audio id="christmasAudio" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/11/15/audio_1250325089.mp3?filename=christmas-bells-1234.mp3" type="audio/mpeg">
+    <source src="https://www.youtube.com/watch?v=woL6_wn7-rc&list=PL-xVUW9dZgbdX9bQ8TiLIZTjs6b9cnnqs" type="audio/mpeg">
     Tu navegador no soporta elementos de audio.
 </audio>
 
